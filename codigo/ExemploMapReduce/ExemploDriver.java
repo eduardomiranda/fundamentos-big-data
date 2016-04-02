@@ -31,8 +31,10 @@ public class ExemploDriver extends Configured implements Tool {
       job.setReducerClass(ExemploReducer.class);
 
       job.setInputFormatClass(TextInputFormat.class);
+      
+      job.setMapOutputValueClass(Text.class);
       job.setOutputKeyClass(Text.class);
-      job.setOutputValueClass(Text.class);
+      job.setOutputValueClass(FloatWritable.class);
 
       // Passa o arquivo de entrada e o diretório de saída
       FileInputFormat.addInputPath(job, new Path(args[0]));
