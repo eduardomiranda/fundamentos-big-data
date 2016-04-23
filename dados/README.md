@@ -13,3 +13,7 @@ Original Source: http://grouplens.org/datasets/movielens/
 # lbaseballdatabank-master_2016-03-02
 Sean Lahman’s Baseball Database | Updated March 2, 2016
 Original source: http://seanlahman.com/baseball-archive/statistics
+
+# adult.data.csv
+Adult Data Set
+Original Source: http://archive.ics.uci.edu/ml/datasets/Adult
