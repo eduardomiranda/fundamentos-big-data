@@ -17,3 +17,7 @@ Original source: http://seanlahman.com/baseball-archive/statistics
 # adult.data.csv
 Adult Data Set
 Original Source: http://archive.ics.uci.edu/ml/datasets/Adult
+
+# hero-network.csv
+Hero Social Network Data
+Original Source: http://exposedata.com/marvel/
