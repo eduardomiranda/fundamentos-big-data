@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-16"?>
+<nfeProc xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.portalfiscal.inf.br/nfe" versao="3.10">
+  <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+    <infNFe versao="3.10" Id="NFe35160401438784004860550010000412381100000439">
+      <ide>
+        <cUF>35</cUF>
+        <cNF>10000043</cNF>
+        <natOp>VENDA MERCADORIAS ADQUIR. RECEB. 3oS.</natOp>
+        <indPag>0</indPag>
+        <mod>55</mod>
+        <serie>1</serie>
+        <nNF>41238</nNF>
+        <dhEmi>2016-04-01T13:12:31-03:00</dhEmi>
+        <dhSaiEnt>2016-04-01T13:12:31-03:00</dhSaiEnt>
+        <tpNF>1</tpNF>
+        <cMunFG>3515004</cMunFG>
+        <tpImp>1</tpImp>
+        <tpEmis>1</tpEmis>
+        <cDV>9</cDV>
+        <tpAmb>1</tpAmb>
+        <finNFe>1</finNFe>
+        <procEmi>0</procEmi>
+        <verProc>NeoGrid NFe 1.52.2</verProc>
+      </ide>
+      <emit>
+        <CNPJ>01438784004860</CNPJ>
+        <xNome>LEROY MERLIN CIA BRASILEIRA DE BRICOLAGEM</xNome>
+        <xFant>E-COMMERCE</xFant>
+        <enderEmit>
+          <xLgr>PATAXOS</xLgr>
+          <nro>1000</nro>
+          <xCpl>PISO 4 RUAS 18 E 19</xCpl>
+          <xBairro>PATAXOS</xBairro>
+          <cMun>3515004</cMun>
+          <xMun>EMBU DAS ARTES</xMun>
+          <UF>SP</UF>
+          <CEP>06833073</CEP>
+          <cPais>1058</cPais>
+          <xPais>Brasil</xPais>
+        </enderEmit>
+        <IE>298176665115</IE>
+        <IEST>1860558000528</IEST>
+        <CRT>3</CRT>
+      </emit>
+      <dest>
+        <CPF>10738848727</CPF>
+        <xNome>EDUARDO DE PAULA MIRANDA</xNome>
+        <enderDest>
+          <xLgr>RUA GARRET</xLgr>
+          <nro>950</nro>
+          <xCpl>APTO. 204</xCpl>
+          <xBairro>JARDIM AMeRICA</xBairro>
+          <cMun>3106200</cMun>
+          <xMun>BELO HORIZONTE</xMun>
+          <UF>MG</UF>
+          <CEP>30421413</CEP>
+          <cPais>1058</cPais>
+          <xPais>BRASIL</xPais>
+        </enderDest>
+      </dest>
+      <det nItem="1">
+        <prod>
+          <cProd>88292743</cProd>
+          <cEAN>07898481973011</cEAN>
+          <xProd>CAVALETE MADEIRA 75X80CM REFORCAD IDEALE UN 0001 UN</xProd>
+          <NCM>44219000</NCM>
+          <CFOP>6108</CFOP>
+          <uCom>UN</uCom>
+          <qCom>2.0000</qCom>
+          <vUnCom>61.9000000000</vUnCom>
+          <vProd>123.80</vProd>
+          <cEANTrib />
+          <uTrib>UN</uTrib>
+          <qTrib>2.0000</qTrib>
+          <vUnTrib>61.9000000000</vUnTrib>
+          <vFrete>13.90</vFrete>
+          <vSeg>0</vSeg>
+          <vDesc>0</vDesc>
+          <vOutro>0</vOutro>
+          <indTot>1</indTot>
+          <nItemPed>0</nItemPed>
+        </prod>
+        <imposto>
+          <ICMS>
+            <ICMS00>
+              <orig>0</orig>
+              <CST>00</CST>
+              <modBC>3</modBC>
+              <vBC>137.70</vBC>
+              <pICMS>12.0000</pICMS>
+              <vICMS>16.52</vICMS>
+            </ICMS00>
+          </ICMS>
+          <PIS>
+            <PISAliq>
+              <CST>02</CST>
+              <vBC>0.02</vBC>
+              <pPIS>1.6500</pPIS>
+              <vPIS>2.04</vPIS>
+            </PISAliq>
+          </PIS>
+          <COFINS>
+            <COFINSAliq>
+              <CST>02</CST>
+              <vBC>123.80</vBC>
+              <pCOFINS>7.6000</pCOFINS>
+              <vCOFINS>9.41</vCOFINS>
+            </COFINSAliq>
+          </COFINS>
+          <IPI>
+            <qSelo>0</qSelo>
+            <cEnq>999</cEnq>
+            <IPITrib>
+              <CST>99</CST>
+              <vBC>0.00</vBC>
+              <pIPI>0.0000</pIPI>
+              <qUnid>0</qUnid>
+              <vUnid>0</vUnid>
+              <vIPI>0.00</vIPI>
+            </IPITrib>
+          </IPI>
+        </imposto>
+      </det>
+      <total>
+        <ICMSTot>
+          <vBC>137.70</vBC>
+          <vICMS>16.52</vICMS>
+          <vBCST>0.00</vBCST>
+          <vST>0.00</vST>
+          <vProd>123.80</vProd>
+          <vFrete>13.90</vFrete>
+          <vSeg>0.00</vSeg>
+          <vDesc>0.00</vDesc>
+          <vII>0.00</vII>
+          <vIPI>0.00</vIPI>
+          <vPIS>2.04</vPIS>
+          <vCOFINS>9.41</vCOFINS>
+          <vOutro>0.00</vOutro>
+          <vNF>137.70</vNF>
+        </ICMSTot>
+        <ISSQNtot>
+          <vServ>0</vServ>
+          <vBC>0</vBC>
+          <vISS>0</vISS>
+          <vPIS>0</vPIS>
+          <vCOFINS>0</vCOFINS>
+        </ISSQNtot>
+        <retTrib>
+          <vRetPIS>0</vRetPIS>
+          <vRetCOFINS>0</vRetCOFINS>
+          <vRetCSLL>0</vRetCSLL>
+          <vBCIRRF>0</vBCIRRF>
+          <vIRRF>0</vIRRF>
+          <vBCRetPrev>0</vBCRetPrev>
+          <vRetPrev>0</vRetPrev>
+        </retTrib>
+      </total>
+      <transp>
+        <modFrete>0</modFrete>
+        <vol>
+          <qVol>2</qVol>
+          <pesoL>2.000</pesoL>
+          <pesoB>2.000</pesoB>
+        </vol>
+      </transp>
+      <infAdic>
+        <infCpl>Pedido: 22959425 TRIB. APROX. R$: 18,52 FED. / 16,52 EST. / 0,00 MUN. / FONTE: IBPT / VER: 15.2.A / CH: 5OI7EW/ VL ICMS UF DEST = R$ 3,3 MD5:67128EAA87F730CE285B6C88CDE244EC</infCpl>
+        <obsCont />
+        <obsFisco />
+        <procRef />
+      </infAdic>
+    </infNFe>
+  </NFe>
+  <protNFe versao="3.10">
+    <infProt>
+      <tpAmb>1</tpAmb>
+      <verAplic>NeoGrid 1.52.2</verAplic>
+      <chNFe>35160401438784004860550010000412381100000439</chNFe>
+      <dhRecbto>2016-04-01T13:13:03-03:00</dhRecbto>
+      <nProt>135160198767546</nProt>
+      <digVal>HgYVui2+Ef+FP9Ftku6+0fueCbI=</digVal>
+      <cStat>100</cStat>
+      <xMotivo>Autorizado o uso da NF-e</xMotivo>
+    </infProt>
+  </protNFe>
+</nfeProc>
