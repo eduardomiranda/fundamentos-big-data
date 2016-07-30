@@ -1,23 +1,48 @@
-# center_earth.txt
-Book: Journey to the Center of the Earth (Jules Verne)
-Original Source: http://www.textfiles.com/etext/FICTION/center_earth
+# Book: Journey to the Center of the Earth (Jules Verne)
+- **Arquivo**: center_earth.txt
+- **Fonte oficial do dateset**: http://www.textfiles.com/etext/FICTION/center_earth
 
-# SummaryOfReceiptsOutlaysSurplusesDeficits.txt
-Summary of Receipts, Outlays, and Surpluses or Deficits (-): 1789–2014
-Original Source: https://www.whitehouse.gov/omb/budget/Historicals
+# Summary of Receipts, Outlays, and Surpluses or Deficits (-): 1789–2014
+- **Arquivo**: SummaryOfReceiptsOutlaysSurplusesDeficits.txt
+- **Fonte oficial do dateset**: https://www.whitehouse.gov/omb/budget/Historicals
 
-# ml-10m.zip
-MovieLens Latest Datasets | 10 million ratings and 100,000 tag applications applied to 10,000 movies by 72,000 users. Released 1/2009.
-Original Source: http://grouplens.org/datasets/movielens/
+# MovieLens Latest Datasets
+- *10 million ratings and 100,000 tag applications applied to 10,000 movies by 72,000 users*. 
+- **Arquivo**: ml-10m.zip
+- **Fonte oficial do dateset** : http://grouplens.org/datasets/movielens/
+- **Data de disponibilização**: Jan 2009.
 
-# lbaseballdatabank-master_2016-03-02
-Sean Lahman’s Baseball Database | Updated March 2, 2016
-Original source: http://seanlahman.com/baseball-archive/statistics
+# Sean Lahman’s Baseball Database
+- **Arquivo**: baseballdatabank-master_2016-03-02
+- **Fonte oficial do dateset**: http://seanlahman.com/baseball-archive/statistics
+- **Data da atualização**: March 2, 2016
 
-# adult.data.csv
-Adult Data Set
-Original Source: http://archive.ics.uci.edu/ml/datasets/Adult
+# The baseball data
+- **Arquivo**: baseball.txt
+- **Esquema dos dados**: name:chararray, team:chararray, position:bag{t:(p:chararray)}, bat:map[]
 
-# hero-network.csv
-Hero Social Network Data
-Original Source: http://exposedata.com/marvel/
+# Adult Data Set
+-- **Arquivo**: adult.data.csv
+- **Fonte oficial do dateset**: http://archive.ics.uci.edu/ml/datasets/Adult
+
+# Hero Social Network Data
+- **Arquivo**: hero-network.csv
+- **Fonte oficial do dateset**: http://exposedata.com/marvel/
+
+# New York Stock Exchange Dividends
+-- **Arquivo**: NYSE_dividends.csv
+- **Esquema dos dados**: exchange:chararray, symbol:chararray, date:chararray, dividends:float
+
+# New York Stock Exchange Daily
+-- **Arquivo**: NYSE_dividends.csv
+- **Esquema dos dados**: exchange:chararray, symbol:chararray, date:chararray, open:float, high:float, low:float, close:float, volume:int, adj_close:float
+
+# All HTTP requests from Aug 04 to Aug 31 to the NASA Kennedy Space Center WWW server in Florida.
+-- **Arquivo**: 
+- **Fonte oficial do dateset**: http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html
+- The logs are an ASCII file with one line per request, with the following columns:
+	- host making the request. A hostname when possible, otherwise the Internet address if the name could not be looked up.
+	- timestamp in the format "DAY MON DD HH:MM:SS YYYY", where DAY is the day of the week, MON is the name of the month, DD is the day of the month, HH:MM:SS is the time of day using a 24-hour clock, and YYYY is the year. The timezone is -0400.
+	- request given in quotes.
+	- HTTP reply code.
+	- bytes in the reply.
