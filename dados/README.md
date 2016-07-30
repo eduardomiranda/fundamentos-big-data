@@ -26,7 +26,7 @@
 - **Fonte oficial do dateset**: http://archive.ics.uci.edu/ml/datasets/Adult
 
 # Hero Social Network Data
-- **Arquivo**: hero-network.csv
+- **Arquivo**: hero-network.csv.zip
 - **Fonte oficial do dateset**: http://exposedata.com/marvel/
 
 # New York Stock Exchange Dividends
@@ -36,6 +36,11 @@
 # New York Stock Exchange Daily
 - **Arquivo**: NYSE_dividends.csv
 - **Esquema dos dados**: *exchange:chararray, symbol:chararray, date:chararray, open:float, high:float, low:float, close:float, volume:int, adj_close:float*
+
+# San Francisco Police Department
+- *Dados desde 1 de Janeiro de 2003*
+- **Arquivo**:
+- **Fonte oficial do dateset**: https://data.sfgov.org/Public-Safety/SFPD-Incidents-from-1-January-2003/tmnf-yvry
 
 # All HTTP requests from Aug 04 to Aug 31 to the NASA Kennedy Space Center WWW server in Florida.
 - **Arquivo**: NASA_access_log_Aug95.gz
