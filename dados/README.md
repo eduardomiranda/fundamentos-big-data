@@ -19,7 +19,7 @@
 
 # The baseball data
 - **Arquivo**: baseball.txt
-- **Esquema dos dados**: name:chararray, team:chararray, position:bag{t:(p:chararray)}, bat:map[]
+- **Esquema dos dados**: *name:chararray, team:chararray, position:bag{t:(p:chararray)}, bat:map[]*
 
 # Adult Data Set
 -- **Arquivo**: adult.data.csv
@@ -30,19 +30,19 @@
 - **Fonte oficial do dateset**: http://exposedata.com/marvel/
 
 # New York Stock Exchange Dividends
--- **Arquivo**: NYSE_dividends.csv
-- **Esquema dos dados**: exchange:chararray, symbol:chararray, date:chararray, dividends:float
+- **Arquivo**: NYSE_dividends.csv
+- **Esquema dos dados**: *exchange:chararray, symbol:chararray, date:chararray, dividends:float*
 
 # New York Stock Exchange Daily
--- **Arquivo**: NYSE_dividends.csv
-- **Esquema dos dados**: exchange:chararray, symbol:chararray, date:chararray, open:float, high:float, low:float, close:float, volume:int, adj_close:float
+- **Arquivo**: NYSE_dividends.csv
+- **Esquema dos dados**: *exchange:chararray, symbol:chararray, date:chararray, open:float, high:float, low:float, close:float, volume:int, adj_close:float*
 
 # All HTTP requests from Aug 04 to Aug 31 to the NASA Kennedy Space Center WWW server in Florida.
--- **Arquivo**: 
+- **Arquivo**: NASA_access_log_Aug95.gz
 - **Fonte oficial do dateset**: http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html
 - The logs are an ASCII file with one line per request, with the following columns:
-	- host making the request. A hostname when possible, otherwise the Internet address if the name could not be looked up.
-	- timestamp in the format "DAY MON DD HH:MM:SS YYYY", where DAY is the day of the week, MON is the name of the month, DD is the day of the month, HH:MM:SS is the time of day using a 24-hour clock, and YYYY is the year. The timezone is -0400.
-	- request given in quotes.
-	- HTTP reply code.
-	- bytes in the reply.
+	- **host** making the request. A hostname when possible, otherwise the Internet address if the name could not be looked up.
+	- **timestamp** in the format "DAY MON DD HH:MM:SS YYYY", where DAY is the day of the week, MON is the name of the month, DD is the day of the month, HH:MM:SS is the time of day using a 24-hour clock, and YYYY is the year. The timezone is -0400.
+	- **request** given in quotes.
+	- **HTTP reply code**.
+	- **bytes in the reply**.
