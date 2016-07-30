@@ -22,7 +22,7 @@
 - **Esquema dos dados**: *name:chararray, team:chararray, position:bag{t:(p:chararray)}, bat:map[]*
 
 # Adult Data Set
--- **Arquivo**: adult.data.csv
+- **Arquivo**: adult.data.csv
 - **Fonte oficial do dateset**: http://archive.ics.uci.edu/ml/datasets/Adult
 
 # Hero Social Network Data
@@ -41,8 +41,8 @@
 - **Arquivo**: NASA_access_log_Aug95.gz
 - **Fonte oficial do dateset**: http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html
 - The logs are an ASCII file with one line per request, with the following columns:
-	- **host** making the request. A hostname when possible, otherwise the Internet address if the name could not be looked up.
-	- **timestamp** in the format "DAY MON DD HH:MM:SS YYYY", where DAY is the day of the week, MON is the name of the month, DD is the day of the month, HH:MM:SS is the time of day using a 24-hour clock, and YYYY is the year. The timezone is -0400.
-	- **request** given in quotes.
-	- **HTTP reply code**.
-	- **bytes in the reply**.
+	**host** making the request. A hostname when possible, otherwise the Internet address if the name could not be looked up.
+	**timestamp** in the format "DAY MON DD HH:MM:SS YYYY", where DAY is the day of the week, MON is the name of the month, DD is the day of the month, HH:MM:SS is the time of day using a 24-hour clock, and YYYY is the year. The timezone is -0400.
+	**request** given in quotes.
+	**HTTP reply code**.
+	**bytes in the reply**.
