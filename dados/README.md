@@ -37,9 +37,9 @@
 - **Arquivo**: NYSE_dividends.csv
 - **Esquema dos dados**: *exchange:chararray, symbol:chararray, date:chararray, open:float, high:float, low:float, close:float, volume:int, adj_close:float*
 
-# San Francisco Police Department
-- *Dados desde 1 de Janeiro de 2003*
-- **Arquivo**:
+# San Francisco Police Department Incidents
+- *Incidents derived from the SFPD Crime Incident Reporting system between Jan 2013 - July 2015.*
+- **Arquivo**: sfpd.csv.zip
 - **Fonte oficial do dateset**: https://data.sfgov.org/Public-Safety/SFPD-Incidents-from-1-January-2003/tmnf-yvry
 
 # All HTTP requests from Aug 04 to Aug 31 to the NASA Kennedy Space Center WWW server in Florida.
