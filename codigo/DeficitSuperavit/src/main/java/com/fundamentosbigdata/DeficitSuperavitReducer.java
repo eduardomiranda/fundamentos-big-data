@@ -1,37 +1,28 @@
 package com.fundamentosbigdata;
 
-import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.FloatWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
 import java.io.IOException;
 
+class DeficitSuperavitReducer extends Reducer<Text, Text, Text, FloatWritable> {
 
-public class DeficitSuperavitReducer  extends Reducer <Text,Text,Text,FloatWritable> {
+    public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
+        long minDelta = Long.MAX_VALUE;
+        Text minYear = new Text();
 
-   public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
+        for (Text value : values) {
+            String[] keyArguments = value.toString().split("_");
+            long delta = Long.parseLong(keyArguments[1]);
 
-     long min=Long.MAX_VALUE;
-     Text minYear=new Text();
+            if (delta < minDelta) {
+                minDelta = delta;
+                minYear = new Text(keyArguments[0]);
+            }
+        }
 
-     long tempValue = 0L;
-     Text tempYear=new Text();
-     String tempString;
-     String[] keyString;
-
-     for (Text value: values) {
-         tempString = value.toString();
-         keyString = tempString.split("_");
-         tempYear = new Text(keyString[0]);
-         tempValue = new Long(keyString[1]).longValue();
-
-        if(tempValue < min) {
-            min=tempValue;
-            minYear=tempYear;
-         }
-     }
-
-     Text keyText=new Text("minimo" + "(" + minYear.toString() + "): ");
-
-     context.write(keyText, new FloatWritable(min));
-   }
+        Text reducedKey = new Text("min" + "(" + minYear.toString() + "): ");
+        context.write(reducedKey, new FloatWritable(minDelta));
+    }
 }
