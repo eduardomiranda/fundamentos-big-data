@@ -1,21 +1,18 @@
 package com.fundamentosbigdata.sparkwordcount
 
-import org.apache.spark.SparkContext
+import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.SparkContext._
-import org.apache.spark.SparkConf
 
 object SparkWordCount {
   def main(args: Array[String]) {
-val sc = new SparkContext(new SparkConf().setAppName("Spark Count"))
+    val context = new SparkContext(new SparkConf().setAppName("Spark Word Count"))
+    val input = context.textFile(args(0))
 
-val centerEarthRDD = sc.textFile(args(0))
+    val tokens = input.flatMap(line => line.split(" "))
+    val wordCounts = tokens.
+      map(word => (word, 1)).
+      reduceByKey((x, y) => x + y)
 
-	// Separa as palavras do documento
-	val tokenizedRDD = centerEarthRDD.flatMap(linha => linha.split(" "))
-
-	// Conta a ocorrência de cada palavra
-	val wordCounts = tokenizedRDD.map( palavra => (palavra,1) ).reduceByKey( (x, y) => x + y)
-	
-	System.out.println(wordCounts.collect().mkString(", "))
+    System.out.println(wordCounts.collect().mkString(", "))
   }
 }
