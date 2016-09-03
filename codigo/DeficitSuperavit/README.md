@@ -37,7 +37,7 @@ $ hadoop fs -rm -r /user/deficitsuperavit/output
 Após ter compilado o projeto e copiado o dataset para o HFS:
 
 ```bash
-$ hadoop jar target/DeficitSuperavit-1.0-SNAPSHOT.jar com.fundamentosbigdata.DeficitSuperavit /user/deficitsuperavit/input /user/deficitsuperavit/output
+$ hadoop jar target/DeficitSuperavit-1.0-SNAPSHOT.jar com.fundamentosbigdata.DeficitSuperavitDriver /user/deficitsuperavit/input /user/deficitsuperavit/output
 ```
 
 Após a execução da tarefa, o resultado estará disponível em `/user/deficitsuperavit/output`. Você pode listar os arquivos gerados usando:
