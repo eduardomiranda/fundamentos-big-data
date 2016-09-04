@@ -1,24 +1,26 @@
 # Comandos Hive
 
 ## Criação de um banco de dados
-```hiveql
+```sql
 CREATE DATABASE nomeDoBanco;
 ```
-```hiveql
+
+Criar um banco de dados chamado nomeDoBanco utilizando um outro local de armazenamento diferente do definido nas configurações do Hive.
+```sql
 CREATE DATABASE nomeDoBanco
 LOCATION '/diretorio/subdiretorio';
 ```
-Criar um banco de dados chamado nomeDoBanco utilizando um outro local de armazenamento diferente do definido nas configurações do Hive.
 
-
+Criar um banco de dados chamado nomeDoBanco adicionando um comentário descritivo do banco e algumas outras metadados.
 ```sql
 CREATE DATABASE nomeDoBanco
 COMMENT 'Banco de dados particular'
 WITH DBPROPERTIES ('criadoPor' = 'Eduardo', 'Data' = '02/05/2016');
 ```
-Criar um banco de dados chamado nomeDoBanco adicionando um comentário descritivo do banco e algumas outras metadados.
+
 
 ## Listar todos os bancos de dados no Hive
+
 ```sql
 SHOW DATABASE;
 ```
