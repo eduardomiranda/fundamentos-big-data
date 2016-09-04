@@ -13,7 +13,7 @@ $ mvn clean package
 
 Isso irá compilar o projeto e gerar um jar em `target/DeficitSuperavit-1.0-SNAPSHOT.jar`.
 
-## Importando o dataset para o HFS
+## Importando o dataset para o HDFS
 
 Um dataset de exemplo está disponivel em `dados/SummaryOfReceiptsOutlaysSurplusesDeficits.txt`.
 
@@ -34,7 +34,7 @@ $ hadoop fs -rm -r /user/deficitsuperavit/output
 
 ## Lendo o resultado do MapReduce
 
-Após ter compilado o projeto e copiado o dataset para o HFS:
+Após ter compilado o projeto e copiado o dataset para o HDFS:
 
 ```bash
 $ hadoop jar target/DeficitSuperavit-1.0-SNAPSHOT.jar com.fundamentosbigdata.DeficitSuperavitDriver /user/deficitsuperavit/input /user/deficitsuperavit/output
