@@ -1,6 +1,6 @@
 # Exercícios extra
 
-## Importe os dados do dataset movielens (dados/ml-10m.zip) para o HDFS e responda as seguntes quesrões usando os seus conhecimentos em MapReduce, Pig, Hive e Spark.
+## Importe os dados do dataset movielens (dados/ml-10m.zip) para o HDFS e responda as seguntes questões usando os seus conhecimentos em MapReduce, Pig, Hive e Spark.
 
 * Quantos filmes, avaliações e tags existem no dataset movielens?
 * Quantos usuários únicos e filmes únicos existem no dataset movielens?
