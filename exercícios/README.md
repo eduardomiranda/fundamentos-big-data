@@ -14,4 +14,4 @@
 * Qual a média de avaliação do filme Shawshank Redemption?
 * Obtenha 50 filmes com as melhores médias de avaliação.
 * Pegue o resultado da questão anterior e importe no MySQL usando o Sqoop.
-* Escreva um programa MapReduce para obter os 5 generos mais comuns.
+* Escreva um programa MapReduce para obter os 5 gêneros mais comuns.
