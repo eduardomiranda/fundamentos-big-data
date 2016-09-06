@@ -88,7 +88,7 @@ pções:
 * **-p**: Preserva os atributos de arquivo (data e hora, proprietário, permissões, ACL, Xattr). Se -p é especificado sem arg, preserva-se  data e hora, proprietário e as permissões, Se -pa for especificado, preserva-se a permissão também porque ACL é um super-conjunto de permissão.
 
 
-## Remove o arquivo ou pasta vazia identificado pelo diretório.
+## Remove o arquivo ou pasta vazia identificado pelo diretório
 ```bash
 $  hadoop fs -cp rm <diretório>
 ```
@@ -98,17 +98,17 @@ Opções:
 * **-skipTrash**: Irá ignorar a lixeira, se habilitado, e apagar o(s) arquivo(s) especificados imediatamente. 
 
 
-## Altera o fator de replicação de um arquivo. 
+## Altera o fator de replicação de um arquivo
 Se o caminho é um diretório, o comando de forma recursiva alterar o fator de replicação de todos os arquivos sob a árvore de diretório raiz diretório.
 ```bash
 $  hadoop fs -setrep [-R] [-w] <número réplicas> <diretório>
 ```
 Opções:
-* **-w**: Pede para que o comando espere até as replicação se complete.
+* **-w**: Pede para que o comando espere até as replicação se complete
 * **-R**: A opção -R é aceito para compatibilidade com versões anteriores. Não tem nenhum efeito.
 
 
-## Cria um arquivo de tamanho zero que contém o timestamp.
+## Cria um arquivo de tamanho zero que contém o timestamp
 ```bash
 $  hadoop fs -touchz <diretório>
 ```
@@ -125,7 +125,7 @@ Opções:
 * **-z**: Se o caminho for um arquivo de tamanho zero, então retorna 0.
 
 
-## Imprime informações sobre o caminho (arquivo ou diretório).
+## Imprime informações sobre o caminho (arquivo ou diretório)
 ```bash
 $  hadoop fs -stat [formato] <caminho>
 ```
@@ -142,7 +142,7 @@ Exemplo:
 $  hadoop fs -hadoop fs -stat "%F %u:%g %b %y %n" <arquivo>
 ```
 
-## Mostra o último 1 KB do arquivo no stdout.
+## Mostra o último 1 KB do arquivo no stdout
 ```bash
 $  hadoop fs -hadoop fs -tail <arquivo>
 ```
