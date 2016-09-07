@@ -1,6 +1,6 @@
 # Comandos HDFS
 
-## Listando arquivos e diretórios no HDFS
+## Listar arquivos e diretórios no HDFS
 Lista o conteúdo do diretório especificado pelo caminho, mostrando o nome, as permissões, o proprietário, o tamanho e a data de modificação de cada entrada.
 ```bash
 $ hadoop fs -ls <diretório>
@@ -10,7 +10,7 @@ Opções:
 * **-h**: Formata o tamanhos dos arquivo em uma forma legível (por exemplo: 64.0m em vez de 67.108.864).
 * **-R**: Recursivamente lista os subdiretórios encontrado.
 
-## Criando um diretório para colocar o arquivo
+## Criação de diretórios
 Cria um caminho de diretório nomeado no HDFS. 
 ```bash
 $ hadoop fs -mkdir <diretório>
@@ -35,23 +35,7 @@ Opções:
 * **-f**: Sobrescreve o destino caso ele já exista.
 
 
-## Move arquivo do sistema local para o HDFS
-Copia o arquivo ou diretório do sistema de arquivos local identificado por **origem** para o **destino** dentro HDFS. Em seguida, exclui a cópia local em caso de sucesso.
-```bash
-$ hadoop fs -moveFromLocal <origem> <destino>
-```
-
-## Move o arquivo ou diretório do HDFS para o sistema local
-```bash
-$  hadoop fs -mv <origem> <destino>
-```
-
-## Exibe o conteúdo do arquivo na saída padrão
-```bash
-$  hadoop fs -cat <arquivo>
-```
-
-## Transferir arquivo do HDFS para o sistema local de arquivos
+## Copiar arquivo do HDFS para o sistema local de arquivos
 Copia o arquivo ou diretório no HDFS identificadas por origem para o caminho do sistema de arquivos local identificado por destino. Uma verificação cíclica de redundância (CRC) é um código de detecção de erro utilizada em redes digitais e dispositivos de armazenamento para detectar alterações acidentais dados brutos.
 ```bash
 $  hadoop fs -get [-crc] <origem> <destino>
@@ -63,23 +47,7 @@ $  hadoop fs -copyToLocal <origem> <destino>
 **copyToLocal** é semelhante ao comando **get**, exceto pelo fato de que o destino é restrita a referência a uma arquivo local.
 
 
-## Recupera concatenando todos os arquivos presentes em um diretório no HDFS
-Recupera todos os arquivos presentes no diretório origem no HDFS, e os copia para um arquivo único, resultante da concatenação no sistema de arquivos local identificado por destino. Opcionalmente -nl pode ser utilizado para adicionar uma nova linha no final de cada arquivo.
-```bash
-$  hadoop fs -getmerge <origem> <destino>
-```
-
-## Mostra o uso do disco, em bytes, para todos os arquivos que casam com o diretório especificado
-```bash
-$  hadoop fs -du <diretório>
-```
-Opções:
-* **-s**: Resumo agregado do tamanho dos arquivos que estão sendo exibidos, em vez dos arquivos individuais.
-* **-h**: Formata o tamanhos dos arquivo em uma forma legível (por exemplo: 64.0m em vez de 67.108.864).
-
-
-
-## Copia o arquivo ou diretório identificado no HDFS, da origem para o destino
+## Copiar o arquivo ou diretório no HDFS
 ```bash
 $  hadoop fs -cp <origem> <destino>
 ```
@@ -88,7 +56,24 @@ pções:
 * **-p**: Preserva os atributos de arquivo (data e hora, proprietário, permissões, ACL, Xattr). Se -p é especificado sem arg, preserva-se  data e hora, proprietário e as permissões, Se -pa for especificado, preserva-se a permissão também porque ACL é um super-conjunto de permissão.
 
 
-## Remove o arquivo ou pasta vazia identificado pelo diretório
+## Mover arquivo do sistema local para o HDFS
+Copia o arquivo ou diretório do sistema de arquivos local identificado por **origem** para o **destino** dentro HDFS. Em seguida, exclui a cópia local em caso de sucesso.
+```bash
+$ hadoop fs -moveFromLocal <origem> <destino>
+```
+
+## Mover arquivo ou diretório do HDFS para o sistema local
+```bash
+$  hadoop fs -mv <origem> <destino>
+```
+
+## Exibir o conteúdo do arquivo na saída padrão
+```bash
+$  hadoop fs -cat <arquivo>
+```
+
+
+## Remover o arquivo ou pasta vazia
 ```bash
 $  hadoop fs -cp rm <diretório>
 ```
@@ -98,7 +83,22 @@ Opções:
 * **-skipTrash**: Irá ignorar a lixeira, se habilitado, e apagar o(s) arquivo(s) especificados imediatamente. 
 
 
-## Altera o fator de replicação de um arquivo
+## Concatenar em um arquivo único todos os arquivos presentes em um diretório no HDFS
+Recupera todos os arquivos presentes no diretório origem no HDFS, e os copia para um arquivo único, resultante da concatenação no sistema de arquivos local identificado por destino. Opcionalmente -nl pode ser utilizado para adicionar uma nova linha no final de cada arquivo.
+```bash
+$  hadoop fs -getmerge <origem> <destino>
+```
+
+## Exibir o uso do disco, em bytes, para todos os arquivos que casam com o diretório especificado
+```bash
+$  hadoop fs -du <diretório>
+```
+Opções:
+* **-s**: Resumo agregado do tamanho dos arquivos que estão sendo exibidos, em vez dos arquivos individuais.
+* **-h**: Formata o tamanhos dos arquivo em uma forma legível (por exemplo: 64.0m em vez de 67.108.864).
+
+
+## Alterar o fator de replicação de um arquivo
 Se o caminho é um diretório, o comando de forma recursiva alterar o fator de replicação de todos os arquivos sob a árvore de diretório raiz diretório.
 ```bash
 $  hadoop fs -setrep [-R] [-w] <número réplicas> <diretório>
@@ -108,7 +108,7 @@ Opções:
 * **-R**: A opção -R é aceito para compatibilidade com versões anteriores. Não tem nenhum efeito.
 
 
-## Cria um arquivo de tamanho zero que contém o timestamp
+## Criar um arquivo de tamanho zero que contém o timestamp
 ```bash
 $  hadoop fs -touchz <diretório>
 ```
@@ -125,7 +125,7 @@ Opções:
 * **-z**: Se o caminho for um arquivo de tamanho zero, então retorna 0.
 
 
-## Imprime informações sobre o caminho (arquivo ou diretório)
+## Imprimir informações sobre o caminho (arquivo ou diretório)
 ```bash
 $  hadoop fs -stat [formato] <caminho>
 ```
@@ -150,7 +150,7 @@ Opção:
 * **-f**: Mostra dados adicionados caso o arquivo cresça.
 
 
-## Alterar as permissões de arquivos
+## Alterar as permissões do arquivos
 O usuário deve ser o proprietário do arquivo, ou então um super-usuário.
 ```bash
 $  hadoop fs -hadoop fs -chmod [-R], modo, ...  <diretório> ...
@@ -159,7 +159,7 @@ Opções:
 * **-R**: Faz a mudança de forma recursiva através da estrutura de diretórios. 
 
 
-## Altera o proprietário do diretório
+## Alterar o proprietário do diretório
 ```bash
 $  hadoop fs -hadoop fs -chown [-R] [proprietário] [:[grupo]] <diretório> ...
 ```
