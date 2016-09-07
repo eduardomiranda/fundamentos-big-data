@@ -1,5 +1,5 @@
-# Analisando dados do Tweeter usando Apache Flume, Apache Hadoop e Apache Hive
-Grande parte das instruções abaixo são traduções do repositório *Tweets usando Apache Flume e Apache Hive*.
+# Analisando dados do Twitter usando Apache Flume, Apache Hadoop e Apache Hive
+Grande parte das instruções abaixo são traduções do repositório *Analyzing Twitter Data Using CDH*.
 
 ## Clonar o repositório Analyzing Twitter Data Using CDH
 Este repositório possui códigos fonte para um source customizado do Flume e para um JSON SerDe para o Hive.
@@ -9,7 +9,7 @@ $ git clone https://github.com/cloudera/cdh-twitter-example.git
 ```
 O diretório *flume-sources* contém um projeto Maven com um source Flume projetado para se conectar à API do Twitter e ingerir no HDFS os tweets em um formato JSON bruto. O diretório *hive-serdes* contém um projeto Maven para um JSON SerDe que permite ao Hive fazer consultas em JSON puro.
 
-## Obtenção do source customizado para o Flume
+## Source customizado para o Flume
 O source customizado do Flume pode ser baixado em http://files.cloudera.com/samples/flume-sources-1.0-SNAPSHOT.jar ou criado por meio dos comandos listados abaixo. 
 ```bash
 $ cd cdh-twitter-example
@@ -29,7 +29,7 @@ $ sudo mkdir -p /usr/lib/flume-ng/plugins.d/twitter-streaming/lib/
 $ sudo mkdir -p /var/lib/flume-ng/plugins.d/twitter-streaming/lib/ 
 ```
 
-## Obtenção JSON SerDe para o Hive
+## JSON SerDe para o Hive
 O JSON SerDe para o Hive pode ser baixado em http://files.cloudera.com/samples/hive-serdes-1.0-SNAPSHOT.jar ou criado por meio dos comandos listados abaixo. 
 ```bash
 $ cd cdh-twitter-example
@@ -44,6 +44,8 @@ Será criado o arquivo *hive-serdes-1.0-SNAPSHOT.jar* no diretório target.
 $ beeline 
 $ !connect jdbc:hive2://localhost:10000 username password
 ```
+Username e password na máquina virtual CDH 5.7: *cloudera*
+
 ### Adicionando o JAR do JSON SerDe
 ```bash
 $ ADD JAR /home/cloudera/Desktop/cdh-twitter-example/hive-serdes/target/hive-serdes-1.0-SNAPSHOT.jar;
@@ -85,17 +87,19 @@ LOCATION '/user/flume/twitter_data';
 ```
 
 ## Iniciando o agente Flume
-Crie um diretório onde o Flume vai descarregar os dados.
+Crie um diretório no HDFS onde o Flume vai descarregar os dados.
 ```bash
 $ hadoop fs -mkdir -p /user/flume/twitter_data/
 ```
 
-### Twitter Consumer Key  Consumer Secret  Access Token  Access Token Secret
-Edite o arquivo twitter-flume.conf substituindo os valores das propriedades:
+### Twitter Consumer Key, Consumer Secret, Access Token, Access Token Secret
+Edite o arquivo *twitter-flume.conf* substituindo os valores das propriedades:
+
 * TwitterAgent.sources.Twitter.consumerKey 
 * TwitterAgent.sources.Twitter.consumerSecret 
 * TwitterAgent.sources.Twitter.accessToken  
 * TwitterAgent.sources.Twitter.accessTokenSecret 
+
 
 Em um outro terminal, inicie o agente Flume
 ```bash
