@@ -1,4 +1,8 @@
-# Analisando dados do Twitter usando Apache Flume, Apache Hadoop e Apache Hive
+# Analisando dados do Twitter usando Apache Flume, Apache HDFS e Apache Hive
+Neste exemplo vamos aprender a usar o Apache Flume, Apache HDFS e Apache Hive para projetar um pipeline de dados end-to-end que irá permitir analisar os dados do Twitter. A API do Twitter nos dará um fluxo constante de tweets provenientes do serviço. Uma opção seria a de simplesmente usar um utilitário como o *curl* para acessar a API e, em seguida, dar uma carga periodicamente em arquivos. No entanto, isso exigiria a escrita de código. 
+
+Apache Flume é uma ferramenta/serviço distribuído e confiável para eficientemente coletar, agregar e mover grandes quantidades de dados de logs, eventos, etc. Ele tem uma arquitetura simples e flexível baseado em streaming de fluxos de dados. No Flume, cada pedaço de dados (tweets, no nosso caso) é chamado de um evento. As *fontes* produzem eventos e enviam os eventos através de um *canal*, que ligam a *fonte* até a *pia*. A *pia* em seguida, grava os eventos em um local pré-definido. O Flume suporta algumas fontes padrão de dados ou syslog: como netcat. Para este exemplo, vamos precisar utilizar uma fonte personalizada que acessa a API Twitter Streaming e envia os tweets através de um *canal* para uma *pia* que grava arquivos no HDFS. 
+
 Grande parte das instruções abaixo são traduções do repositório *Analyzing Twitter Data Using CDH*.
 
 ## Clonar o repositório Analyzing Twitter Data Using CDH
@@ -87,25 +91,31 @@ LOCATION '/user/flume/twitter_data';
 ```
 
 ## Iniciando o agente Flume
-Crie um diretório no HDFS onde o Flume vai descarregar os dados.
-```bash
-$ hadoop fs -mkdir -p /user/flume/twitter_data/
-```
 
-### Twitter Consumer Key, Consumer Secret, Access Token, Access Token Secret
-Edite o arquivo *twitter-flume.conf* substituindo os valores das propriedades:
+### Twitter Apps
+Para que o Flume consiga obter os dados, é preciso a criação de um aplicativo Twitter. Para isso acesse https://apps.twitter.com/, clique em **Create New App** e em seguida preencha os campos Name, Description e Website e clique em **Create your Twitter application**. 
+
+Na tela seguinte, acesse a seção **Details** e em **Application Settings** acesse **manage keys and access tokens**. Você já terá o 	*Consumer Key* e *Consumer Secret*. Logo abaixo, em **Your Access Token** crie um novo Token clicando em **Create my access token**. Agora você terá também o *Access Token* e *Access Token Secret* para utilizar no Apache Flume.
+
+Edite o arquivo *twitter-flume.conf* substituindo os valores das propriedades pelos valores recem criados no Twitter Apps:
 
 * TwitterAgent.sources.Twitter.consumerKey 
 * TwitterAgent.sources.Twitter.consumerSecret 
 * TwitterAgent.sources.Twitter.accessToken  
 * TwitterAgent.sources.Twitter.accessTokenSecret 
 
+### Em outro terminal
+Crie um diretório no HDFS onde o Flume vai descarregar os dados.
+```bash
+$ hadoop fs -mkdir -p /user/flume/twitter_data/
+```
 
-Em um outro terminal, inicie o agente Flume
+inicie o agente Flume
 ```bash
 $ flume-ng agent \
 --conf /home/cloudera/Desktop/fundamentos-big-data/scripts/flume /conf/ \
--f /home/cloudera/Desktop/fundamentos-big-data/scripts/flume/twitter-flume.conf \ -n TwitterAgent
+-f /home/cloudera/Desktop/fundamentos-big-data/scripts/flume/twitter-flume.conf \ 
+-n TwitterAgent
 ```
 
 ## Analisando os dados
