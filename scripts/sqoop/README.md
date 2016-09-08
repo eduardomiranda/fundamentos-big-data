@@ -1,4 +1,4 @@
-# Comandos Sqoop
+# Comandos Sqoop utilizados no exercício em aula.
 
 ## Clonando o repositório test_db
 ```bash

@@ -78,17 +78,17 @@ scan '/user/hbase/clientes'
 
 ### Consultando todas as linhas para a família de coluna *endereco*
 ```
-scan '/user/mapr/clientes', {COLUMNS=>['endereco']}
+scan '/user/hbase/clientes', {COLUMNS=>['endereco']}
 ```
 
 ### Consultando todas as linhas para todas as 5 versões do número do item
 ```
-scan '/user/mapr/clientes', {COLUMNS=>['pedido:nitem'], VERSIONS=>5}
+scan '/user/hbase/clientes', {COLUMNS=>['pedido:nitem'], VERSIONS=>5}
 ```
 
 ### Consultando as linhas cuja chave inicia com *'emi'* na família de coluna *endereco*
 ```
-scan '/user/mapr/clientes', {STARTROW=>'emi', COLUMNS=>['endereco']}
+scan '/user/hbase/clientes', {STARTROW=>'emi', COLUMNS=>['endereco']}
 ```
 
 ### Consultando o número de registros na tabela
