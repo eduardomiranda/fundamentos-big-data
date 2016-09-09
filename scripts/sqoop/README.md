@@ -31,6 +31,16 @@ SOURCE employees.sql
 ### Descrevendo a tabela employees importada
 ```sql
 DESCRIBE employees;
+	+------------+---------------+------+-----+---------+-------+
+	| Field      | Type          | Null | Key | Default | Extra |
+	+------------+---------------+------+-----+---------+-------+
+	| emp_no     | int(11)       | NO   | PRI | NULL    |       |
+	| birth_date | date          | NO   |     | NULL    |       |
+	| first_name | varchar(14)   | NO   |     | NULL    |       |
+	| last_name  | varchar(16)   | NO   |     | NULL    |       |
+	| gender     | enum('M','F') | NO   |     | NULL    |       |
+	| hire_date  | date          | NO   |     | NULL    |       |
+	+------------+---------------+------+-----+---------+-------+
 ```
 
 ## Importando os dados do MySQL para o HDFS via Sqoop
@@ -43,28 +53,30 @@ $ sqoop import \
 ```
 
 ```bash
-$ sqoop import \ 
+$ sqoop import \
 --connect jdbc:mysql://localhost:3306/employees \
 --username arroz \
 --password feijao \
 --table employees \
---columns "first_name. last_name" \
+--columns "first_name, last_name" \
 --where "emp_no > 100"
 ```
 
 Opcionalmente, o usuário pode substituir os três argumentos *--table*, *--columns* e *--where* pelo argumento *--query*, onde se deve definir toda a consulta SQL.
 ```bash
-$ sqoop import \ 
+$ sqoop import \
 --connect jdbc:mysql://localhost:3306/employees \
 --username arroz \
 --password feijao \
---query "SELECT first_name. last_name FROM employees WHERE emp_no > 100 AND $CONDITIONS"
+--query "SELECT emp_no, first_name, last_name FROM employees WHERE \$CONDITIONS AND (emp_no > 100)" \
+--target-dir /user/eduardo/employees \
+--split-by emp_no
 ```
 
 ## Importação incremental
 Importação incremental no modo *append* apenas dos registros que possuírem emp_no maior que 1000.
 ```bash
-$ sqoop import \ 
+$ sqoop import \
 --connect jdbc:mysql://localhost:3306/employees \
 --username arroz \
 --password feijao \
@@ -76,7 +88,7 @@ $ sqoop import \
 
 ## Importando dados para o Hive
 ```bash
-$ sqoop import \ 
+$ sqoop import \
 --connect jdbc:mysql://localhost:3306/employees \
 --username arroz \
 --password feijao \
@@ -114,7 +126,7 @@ PRIMARY KEY (emp_no)
 
 ### Exportando dados do Hive para o MySQL
 ```bash
-$ sqoop export \ 
+$ sqoop export \
 --connect jdbc:mysql://localhost:3306/employees \
 --username arroz \
 --password feijao \
