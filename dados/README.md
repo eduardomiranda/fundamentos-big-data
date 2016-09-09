@@ -30,11 +30,11 @@
 - **Fonte oficial do dateset**: http://exposedata.com/marvel/
 
 # New York Stock Exchange Dividends
-- **Arquivo**: NYSE_dividends.csv
+- **Arquivo**: NYSE_dividends
 - **Esquema dos dados**: *exchange:chararray, symbol:chararray, date:chararray, dividends:float*
 
 # New York Stock Exchange Daily
-- **Arquivo**: NYSE_dividends.csv
+- **Arquivo**: NYSE_dividends
 - **Esquema dos dados**: *exchange:chararray, symbol:chararray, date:chararray, open:float, high:float, low:float, close:float, volume:int, adj_close:float*
 
 # San Francisco Police Department Incidents
