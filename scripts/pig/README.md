@@ -6,6 +6,8 @@ $ pig
 ```
 
 ## LOAD
+Note que o arquivo de dados deve estar no HDFS. Se o caminho completo não for informado, o Pig irá buscar os dados em /user/*usuário*/.
+
 ### Leitura de dados sem a definição do esquema
 ```
 dividends = LOAD 'NYSE_dividends';
@@ -28,7 +30,7 @@ divs = LOAD 'NYSE_dividends' USING HBaseStorage();
 
 ### Lendo dados textuais utilizando a vírgula como separador
 ```
-divs = LOAD '/user/pigusr/NYSE_dividends.csv' USING PigStorage(',') AS (exchange, symbol, date, dividends);
+divs = LOAD '/user/pigusr/NYSE_dividends' USING PigStorage(',') AS (exchange, symbol, date, dividends);
 ```
 
 ## STORE
@@ -150,7 +152,7 @@ O Pig aceita os operadores de comparação  ==  !=  >  >=  <  <=. O exemplo abai
 ```
 divs = LOAD 'NYSE_dividends' AS (exchange:CHARARRAY, symbol:CHARARRAY, date:CHARARRAY, dividends:FLOAT);
 
-filtro = FILTER divs BY dividents > 0.5;
+filtro = FILTER divs BY dividend > 0.5;
 ```
 
 Além disso, é possível ainda utilizar expressões regulares
