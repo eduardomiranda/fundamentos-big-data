@@ -1,12 +1,15 @@
 # Comandos HBase utilizados no exercício em aula.
-O objetivo do exercício é criar no HBase a tabela clientes com as famílias de colunas *endereco* e *pedido* com as seguintes colunas:
+O objetivo do exercício é criar no HBase a tabela *clientes* com as famílias de colunas *endereco* e *pedido* com as seguintes colunas:
+ 
+endereco | pedido
+---------|--------
+cidade   | data
+estado   | nitem
 
-* endereco
-    * cidade
-    * estado
-* pedido
-    * data
-    * nitem
+Chave da linha | cidade | estado | data | nitem
+---------------|--------|--------|--------|--------
+emiranda | Belo Horizonte | Minas Gerais | 2/2/2016 | 1234D
+abarcelos | Manaus | Amazonas | 10/3/2016 | 8547S
 
 Fonte do exercício: [Getting Started with HBase Shell](https://www.mapr.com/products/mapr-sandbox-hadoop/tutorials/tutorial-getting-started-with-hbase-shell)
 
