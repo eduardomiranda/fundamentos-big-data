@@ -8,117 +8,116 @@ O objetivo do exercício é criar no HBase a tabela clientes com as famílias de
     * data
     * nitem
 
-## Iniciar o HBase Shell
+Fonte do exercício: [Getting Started with HBase Shell](https://www.mapr.com/products/mapr-sandbox-hadoop/tutorials/tutorial-getting-started-with-hbase-shell)
+
+## HBase shell
+Uma tabela HBase pode ser criada através do HBase shell ou da API Java. O HBase shell é um script ruby que auxilia na manipulação do HBase através da linha de comando. Os comandos estão categorizados em 6 grupos principais:
+
+* Comandos gerais
+* Gestão das tabelas
+* Manipulação de dados
+* Ferramentas de cirurgia
+* Replicação de cluster
+* Ferramentas de segurança
+
+## Iniciar o HBase shell
 ```bash
 $ hbase shell
 ```
 
 ## Criando uma tabela no diretório home
-```
-create '/user/hbase/clientes', {NAME=>'endereco'}, {NAME=>'pedido'}
+As familias de colunas devem ser definidas antes da inserção dos dados. Mas as colunas podem ser adicionadas dinamicamente.
+
+```bash
+> create 'clientes', {NAME => 'endereco'}, {NAME => 'pedido'}
 ```
 
-## Obtendo uma descrição da tabela criada
-```
-describe '/user/hbase/clientes'
-````
-
-## Inserindo dados
-```
-put '/user/hbase/clientes', 'emiranda', 'endereco:cidade', 'Belo Horizonte'
-put '/user/hbase/clientes', 'emiranda', 'endereco:estado', 'Minas Gerais'
-put '/user/hbase/clientes', 'emiranda', 'pedido:data', '2/2/2016'
-put '/user/hbase/clientes', 'emiranda', 'pedido:nitem', '1234D'
+## Obtendo uma descrição da tabela
+```bash
+> describe 'clientes'
 ```
 
-## Consultas
+## Inserindo dados na tabela
+```bash
+> put 'clientes', 'emiranda', 'endereco:cidade', 'Belo Horizonte'
+> put 'clientes', 'emiranda', 'endereco:estado', 'Minas Gerais'
+> put 'clientes', 'emiranda', 'pedido:data', '2/2/2016'
+> put 'clientes', 'emiranda', 'pedido:nitem', '1234D'
 ```
-get '/user/hbase/clientes', 'emiranda'
 
-COLUMN		        CELL
-endereco:cidade		timestamp=1455857085164,    value=Belo Horizonte
-endereco:estado		timestamp=1455857426625,    value=Minas Gerais
-pedido:NITEM		timestamp=1455857602978,    value=1234D
-pedido:data		    timestamp=1455857548664,    value=2/2/2016
+## Consultando a tabela 
+### Para o id *emiranda*
+```bash
+> get 'clientes', 'emiranda'
 ```
 
 ### Refinando a consulta para a família *endereco*
-```
-get '/user/hbase/clientes', 'emiranda',{COLUMNS=>['endereco']}
-
-COLUMN	        	CELL
-endereco:cidade		timestamp=1455857085164,    value=Belo Horizonte
-endereco:estado		timestamp=1455857426625,    value=Minas Gerais
+```bash
+> get 'clientes', 'emiranda',{COLUMNS=>['endereco']}
 ```
 
 ### Refinando a consulta para a coluna *cidade* da família *endereco*
-```
-get '/user/hbase/clientes', 'emiranda',{COLUMNS=>['endereco:cidade']}
-
-COLUMN		        CELL
-endereco:cidade		timestamp=1455857085164,    value=Belo Horizonte
+```bash
+> get 'clientes', 'emiranda',{COLUMNS=>['endereco:cidade']}
 ```
 
-### Consultando as 5 últimas versões dos números dos itens dos pedidos do id *emiranda*
-```
-get '/user/hbase/clientes', 'emiranda',{COLUMNS=>['pedido:nitem'], VERSIONS=>5}
-
-COLUMN		        CELL
-pedido:nitem		timestamp=1455860777406,    value=1234W
-pedido:nitem		timestamp=1455860754429,    value=1234J
-pedido:nitem		timestamp=1455860721943,    value=1234G
-pedido:nitem		timestamp=1455860659572,    value=1234E
-pedido:nitem		timestamp=1455860659572,    value=1234D
+### Consultando os números dos itens dos pedidos do id *emiranda*
+```bash
+> get 'clientes', 'emiranda',{COLUMNS=>['pedido:nitem']}
 ```
 
-### Consultando todas as linhas e todas as colunas da tabela
+### Consultando todas as versões dos números dos itens dos pedidos do id emiranda
+```bash
+> get 'clientes', 'emiranda',{COLUMNS=>['pedido:nitem'], VERSIONS=>5}
 ```
-scan '/user/hbase/clientes'
+
+### Consultando todas as linhas e todas as colunas
+```bash
+> scan 'clientes'
 ```
 
 ### Consultando todas as linhas para a família de coluna *endereco*
-```
-scan '/user/hbase/clientes', {COLUMNS=>['endereco']}
+```bash
+> scan 'clientes', {COLUMNS=>['endereco']}
 ```
 
 ### Consultando todas as linhas para todas as 5 versões do número do item
-```
-scan '/user/hbase/clientes', {COLUMNS=>['pedido:nitem'], VERSIONS=>5}
-```
-
-### Consultando as linhas cuja chave inicia com *'emi'* na família de coluna *endereco*
-```
-scan '/user/hbase/clientes', {STARTROW=>'emi', COLUMNS=>['endereco']}
+```bash
+> scan 'clientes', {COLUMNS=>['pedido:nitem'], VERSIONS=>5}
 ```
 
-### Consultando o número de registros na tabela
-```
-count '/user/hbase/clientes'
-```
-
-## Alteração da tabela
-Alterando a tabela para armazenar mais versões para a família de coluna pedido.
-```
-alter '/user/hbase/clientes', NAME=>'pedido', VERSIONS=>5
+### Consultando as linhas cuja chave inicia com 'emi' e família de coluna *endereco*
+```bash
+> scan 'clientes', {STARTROW=>'emi', COLUMNS=>['endereco']}
 ```
 
-##  Obtendo uma descrição da tabela
-```
-describe '/user/hbase/clientes'
+## Alterando a tabela 
+
+### Para armazenar mais versões para a família de coluna *pedido*
+```bash
+> alter 'clientes', NAME=>'pedido', VERSIONS=>5
 ```
 
-## Deleção
+## Count
+
+### Contando o número de registros na tabela
+```bash
+> count 'clientes'
+```
+
+## Delete
 
 ### Deletando uma coluna
-```
-delete '/user/hbase/clientes', 'emiranda', 'endereco:cidade'
+```bash
+> delete 'clientes', 'emiranda', 'endereco:cidade'
 ```
 
 ### Deletando uma família de coluna
+```bash
+> delete 'clientes', 'emiranda', 'endereco'
 ```
-delete '/user/hbase/clientes', 'emiranda', 'endereco'
-```
+
 ### Deletando uma linha
-```
-deleteall '/user/hbase/clientes', 'emiranda'
+```bash
+> deleteall 'clientes', 'emiranda'
 ```
