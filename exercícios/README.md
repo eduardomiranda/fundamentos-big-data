@@ -5,6 +5,7 @@ Importe os dados do dataset movielens (dados/ml-10m.zip) para o HDFS e responda 
 
 #### Questões
 
+<<<<<<< HEAD
 * Quantos filmes, avaliações e tags existem no dataset movielens?
 * Quantos usuários únicos e filmes únicos existem no dataset movielens?
 * Qual foi o usuário que avaliou o maior número de filmes?
@@ -29,3 +30,18 @@ As questões deste exercício foram retiradas da página [Airline on-time perfor
 * Quando é a melhor hora do dia / dia da semana / época do ano para voar de modo a minimizar os atrasos?
 * Os aviões mais velhos sofrem mais atrasos?
 * Como o número de pessoas voando entre locais diferentes mudou ao longo do tempo?
+=======
+1. Quantos filmes, avaliações e tags existem no dataset movielens?
+2. Quantos usuários únicos e filmes únicos existem no dataset movielens?
+3. Qual foi o usuário que avaliou o maior número de filmes?
+4. Qual foi o usuário que avaliou o menor número de filmes?
+5. Encontre os 50 filmes que tiveram mais avaliações.
+6. Qual é a média das avaliações?
+7. Qual o ano e nome do filme mais velho?
+8. Escreva um consulta Hive, um script Pig, um programa MapReduce ou um programa Spark para selecionar apenas os ratings acima de 4.
+9. Obtenha a média de avaliações por filme.
+10. Qual a média de avaliação do filme Shawshank Redemption?
+11. Obtenha 50 filmes com as melhores médias de avaliação.
+12. Pegue o resultado da questão anterior e importe no MySQL usando o Sqoop.
+13. Escreva um programa MapReduce para obter os 5 gêneros mais comuns.
+>>>>>>> ba3664177e6448e38595bcb3d220ac7cc4321a69
