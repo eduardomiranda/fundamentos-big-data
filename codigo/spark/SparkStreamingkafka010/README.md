@@ -72,7 +72,7 @@ $ mvn clean package
 
 Executando a aplicação **Spark Streaming**
 ```
-$ cd spark-2.1.3-bin-hadoop27/
+$ cd spark-2.1.3-bin-hadoop2.7/
 
 $ bin/spark-submit \
    --class com.fundamentosbigdata.SparkStreamingKafka \
