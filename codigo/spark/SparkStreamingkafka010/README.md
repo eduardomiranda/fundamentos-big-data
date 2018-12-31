@@ -9,10 +9,12 @@ Este código é uma alteração do original [Spark Streaming + Kafka 0.10 Demo](
 $ cd Desktop/
 ```
 
+
 Download do Apache Kafka 0.10 
 ```
 $ wget https://archive.apache.org/dist/kafka/0.10.2.1/kafka_2.11-0.10.2.1.tgz
 ```
+
 
 Descompactando
 ```
@@ -26,10 +28,12 @@ $ tar -xzf kafka_2.11-0.10.2.1.tgz
 $ cd Desktop/
 ```
 
+
 Download do Apache Spark 2.1.3  
 ```
 $ wget  http://mirror.nbtelecom.com.br/apache/spark/spark-2.1.3/spark-2.1.3-bin-hadoop2.7.tgz
 ```
+
 
 Descompactando
 ```
@@ -42,12 +46,13 @@ $ tar -zxvf spark-2.1.3-bin-hadoop2.7.tgz
 
 Iniciando o Kafka com as configurações padrão
 ```
-$ cd afka_2.11-0.10.2.1/
+$ cd kafka_2.11-0.10.2.1/
 
 $ bin/kafka-server-start.sh config/server.properties
 ```
 
-Criando O tópico Kafka `text` consumido pela aplicação Spark Streaming
+
+Criando O tópico Kafka `text` consumido pela aplicação **Spark Streaming**
 ```
 $ /usr/bin/kafka-topics  \
    --create  \
@@ -57,12 +62,15 @@ $ /usr/bin/kafka-topics  \
    --topic text 
 ```
 
-Gerando o código da aplicação Spark Streaming
+
+Gerando o código da aplicação **Spark Streaming**
 ```
+$ cd /fundamentos-big-data/codigo/spark/SparkStreamingkafka010
 $ mvn clean package
 ```
 
-Executando a aplicação Spark Streaming
+
+Executando a aplicação **Spark Streaming**
 ```
 $ cd spark-2.1.3-bin-hadoop27/
 
@@ -71,6 +79,7 @@ $ bin/spark-submit \
    --master local \
    /fundamentos-big-data/codigo/spark/SparkStreamingkafka010/target/spark-streaming-kafka-1.0.jar
 ```
+
 
 Produzindo mensagens no tópico `text`
 ```
