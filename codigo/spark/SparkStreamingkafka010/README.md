@@ -1,6 +1,6 @@
 # Spark Streaming + Kafka 0.10
 
-Este código é uma alteração do original **Spark Streaming + Kafka 0.10 Demo** (https://github.com/joanvr/spark-streaming-kafka-010-demo)
+Este código é uma alteração do original [Spark Streaming + Kafka 0.10 Demo] (https://github.com/joanvr/spark-streaming-kafka-010-demo)
 
 
 ## Download do Apache Kafka 0.10
