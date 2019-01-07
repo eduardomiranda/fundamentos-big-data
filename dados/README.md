@@ -30,7 +30,7 @@
 
 
 ## 1999 Czech Financial Dataset
-- **Arquivo**: data_berka.zip
+- **Arquivo**: czech-financial-dataset-real-anonymized-transactions.zip
 - **Fonte oficial do dateset**: https://data.world/lpetrocelli/czech-financial-dataset-real-anonymized-transactions
 - Real anonymized Czech bank transactions, account info, and loan records released for PKDD'99 Discovery Challenge.
 
