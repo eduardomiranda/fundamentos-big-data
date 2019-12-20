@@ -51,7 +51,7 @@ object SparkStreamingKafka extends App {
         .reduceByKey(_ + _)
         .repartition(1)
         .transform(rdd => rdd.sortBy(-_._2))
-        .saveAsTextFiles("hdfs://quickstart.cloudera:8020/output/words")
+        .saveAsTextFiles("hdfs://localhost:9000/output/words")
 
   streamingContext.start()
   streamingContext.awaitTermination()
